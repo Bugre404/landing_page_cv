@@ -204,7 +204,7 @@ function HomePage() {
             </div>
 
             <p className="animate-fade-up delay-300 mt-5 max-w-[34rem] text-base leading-relaxed text-white/70 sm:text-lg">
-              O tempo e apenas uma construcao; a verdade e eterna. (Matrix)
+              O tempo é apenas uma construção; a verdade é eterna. (Matrix)
             </p>
 
             <div className="animate-fade-up delay-400 mt-10 flex w-full flex-col items-start gap-3 sm:flex-row sm:gap-4">
