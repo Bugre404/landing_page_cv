@@ -192,7 +192,7 @@ function HomePage() {
           <div className="order-2 text-left lg:order-1">
             <div className="animate-fade-up delay-200 w-full max-w-3xl select-none text-left">
               <h1 className="text-[2.1rem] font-light leading-none tracking-[-0.04em] text-white/85 sm:text-[2.6rem] md:text-[3.15rem]">
-                Saudacoes ! <span className="ml-2 inline-block align-middle text-[0.84em]">{"\u270C\uFE0F"}</span>
+                Saudacões ! <span className="ml-2 inline-block align-middle text-[0.84em]">{"\u270C\uFE0F"}</span>
               </h1>
               <p className="mt-3 text-[2.1rem] font-light leading-none tracking-[-0.04em] text-white/60 sm:text-[2.6rem] md:text-[3.15rem]">
                 me chamo
