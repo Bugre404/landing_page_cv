@@ -435,7 +435,7 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/landing_page_cv">
       <ScrollToHash />
       <div className="min-h-screen font-sans text-white selection:bg-cyan-400/20">
         <Routes>
