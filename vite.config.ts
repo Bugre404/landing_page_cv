@@ -17,5 +17,9 @@ export default defineConfig(({ mode }) => {
     server: {
       hmr: process.env.DISABLE_HMR !== 'true',
     },
+    build: {
+      outDir: 'docs', // Faz o build ir direto para a pasta que o GitHub Pages usa
+      emptyOutDir: true, // Limpa a pasta antes de gerar o novo build
+    },
   };
 });

@@ -29,7 +29,7 @@
     "components",
     "lib",
     "vite.config.ts"
-  ],
+, "public/App.tsx"  ],
   "exclude": [
     "node_modules",
     "dist",

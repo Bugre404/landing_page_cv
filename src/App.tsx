@@ -18,7 +18,9 @@ import { GlowCard } from "@/components/ui/spotlight-card";
 import { AnimatedBackground } from "./components/AnimatedBackground";
 import { useReveal } from "./hooks/use-reveal";
 import ProjectPage from "./pages/ProjectPage";
-import profilePhoto from "../profile (1).png";
+import profilePhoto from "/profile (1).png";
+
+const BASE_URL = import.meta.env.BASE_URL;
 
 const contactLinks = {
   email: "https://www.linkedin.com/in/j%C3%BAlio-c%C3%A9sar-de-freitas-filho-96b454a7/",
@@ -33,6 +35,7 @@ const featuredProjects = [
     title: "Monitoramento NTC 10K",
     description: "Sistema de monitoramento termico com Arduino, Python e dashboard em tempo real.",
     color: "blue" as const,
+    video: `${BASE_URL}project-video.mp4`,
   },
   {
     slug: "power-bi-sales",
@@ -40,6 +43,7 @@ const featuredProjects = [
     title: "Dashboard de Vendas",
     description: "Painel em Power BI com ETL, KPIs e leitura estrategica dos dados de vendas.",
     color: "purple" as const,
+    video: `${BASE_URL}sales-dashboard-1.mp4`,
   },
   {
     slug: "",
@@ -209,7 +213,7 @@ function HomePage() {
 
             <div className="animate-fade-up delay-400 mt-10 flex w-full flex-col items-start gap-3 sm:flex-row sm:gap-4">
               <a
-                href="/CV2026.pdf"
+                href={`${BASE_URL}CV2026.pdf`}
                 download="Julio-Cesar-Curriculo.pdf"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-cyan-400/25 bg-cyan-400/10 px-7 py-3.5 text-sm font-semibold text-cyan-100 backdrop-blur-sm transition hover:bg-cyan-400/15 hover:shadow-[0_0_30px_rgba(34,211,238,0.2)] sm:w-auto"
               >
@@ -252,7 +256,7 @@ function HomePage() {
                 }
               >
                 <img
-                  src={profilePhoto}
+                  src={`${BASE_URL}profile (1).png`}
                   alt="Foto de perfil - Computer Engineer UNIVESP"
                   className="relative z-10 h-full w-full rounded-full object-cover"
                   loading="eager"
@@ -283,11 +287,20 @@ function HomePage() {
           {featuredProjects.map((project, index) => (
             <Reveal key={project.title} delay={index * 120} className="hover-lift">
               <GlowCard glowColor={project.color} customSize className="h-full min-h-[280px] w-full">
-                <div className="flex h-full flex-col justify-between text-white">
+                <div className="flex h-full flex-col justify-between text-white overflow-hidden">
                   <div>
-                    <project.icon className="mb-4 h-8 w-8 text-white/90" />
+                    <div className="flex items-center gap-3 mb-4">
+                      <project.icon className="h-6 w-6 text-white/90" />
+                      <span className="text-xs font-mono text-white/40 uppercase tracking-widest">Projeto</span>
+                    </div>
                     <h3 className="text-xl font-semibold">{project.title}</h3>
                     <p className="mt-2 text-sm text-white/70">{project.description}</p>
+                    
+                    {project.video && (
+                      <div className="mt-4 aspect-video rounded-xl overflow-hidden border border-white/10 bg-black/20">
+                        <video src={project.video} autoPlay muted loop playsInline className="h-full w-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    )}
                   </div>
                   {project.slug ? (
                     <Link
@@ -434,8 +447,11 @@ export default function App() {
     document.documentElement.classList.add("dark");
   }, []);
 
+  // Remove a barra final para o basename, se existir, para evitar conflitos no roteamento
+  const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
+
   return (
-    <BrowserRouter basename="/landing_page_cv">
+    <BrowserRouter basename={basename}>
       <ScrollToHash />
       <div className="min-h-screen font-sans text-white selection:bg-cyan-400/20">
         <Routes>

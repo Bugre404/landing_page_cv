@@ -3,6 +3,8 @@ import { motion } from "motion/react";
 import { ArrowLeft, Code2, Cpu, Database, ExternalLink, Github, Layout } from "lucide-react";
 import { Button } from "../../components/ui/button";
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 const projectData = {
   "ntc-10k": {
     title: "Monitoramento NTC 10K",
@@ -22,7 +24,7 @@ const projectData = {
       "Base estruturada para analise posterior em Excel, Pandas ou relatorios tecnicos.",
       "Interface acessivel via rede local para acompanhamento rapido do experimento.",
     ],
-    video: "/project-video.mp4",
+    video: `${BASE_URL}project-video.mp4`,
     video2: undefined,
     tags: ["IoT", "Arduino", "Python", "Data Science", "Engenharia"],
   },
@@ -44,8 +46,8 @@ const projectData = {
       "Filtros interativos para comparar marcas, regioes e continentes.",
       "Painel orientado a gestao com foco em clareza e tomada de decisao.",
     ],
-    video: "/sales-dashboard-1.mp4",
-    video2: "/sales-dashboard-2.mp4",
+    video: `${BASE_URL}sales-dashboard-1.mp4`,
+    video2: `${BASE_URL}sales-dashboard-2.mp4`,
     tags: ["Power BI", "Excel", "ETL", "Data Analysis"],
   },
 } as const;
