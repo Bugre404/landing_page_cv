@@ -85,6 +85,12 @@ const journeyItems = [
 ];
 
 const journeySkills = [
+  "HTML",
+  "CSS",
+  "JS",
+  "MongoDB",
+  "PostgreSQL",
+  "SQLite",
   "Python",
   "ETL",
   "Power BI",
@@ -169,9 +175,8 @@ function HomePage() {
       </div>
 
       <header
-        className={`animate-fade-in-slow fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          isHeaderScrolled ? "border-b border-white/10 bg-black/35 backdrop-blur-xl" : "bg-transparent"
-        }`}
+        className={`animate-fade-in-slow fixed inset-x-0 top-0 z-50 transition-all duration-300 ${isHeaderScrolled ? "border-b border-white/10 bg-black/35 backdrop-blur-xl" : "bg-transparent"
+          }`}
       >
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5">
           <a href="#top" className="font-mono text-sm font-bold tracking-tight text-white/90">
@@ -236,7 +241,7 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="order-1 flex flex-col items-center justify-center lg:order-2 lg:justify-end lg:justify-self-end lg:pr-10 lg:pt-14">
+          <div className="order-1 flex flex-col items-center justify-center lg:order-2 lg:justify-end lg:justify-self-end lg:pr-32 lg:pt-14">
             <div className="animate-fade-up delay-100">
               <GlowCard
                 glowColor="blue"
@@ -295,7 +300,7 @@ function HomePage() {
                     </div>
                     <h3 className="text-xl font-semibold">{project.title}</h3>
                     <p className="mt-2 text-sm text-white/70">{project.description}</p>
-                    
+
                     {project.video && (
                       <div className="mt-4 aspect-video rounded-xl overflow-hidden border border-white/10 bg-black/20">
                         <video src={project.video} autoPlay muted loop playsInline className="h-full w-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
